@@ -1,0 +1,95 @@
+/** @format */
+
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-left: $spacer * 5;
+  margin-right: $spacer;
+  margin-bottom: $spacer * 1.5;
+
+  @include tablet {
+    flex-direction: row;
+    justify-content: space-between;
+    height: $spacer * 3;
+    margin-left: $spacer * 5.5;
+    margin-right: $spacer * 4;
+    margin-bottom: $spacer * 1.5;
+  }
+
+  @include desktop {
+    margin-left: $spacer * 14;
+  }
+
+  &__picture {
+    @include avatar($size: 48px);
+    max-height: 100px;
+    max-width: 100px;
+    position: absolute;
+    background-image: url("../../assets/images/Mohan-muruge.jpg");
+    background-size: cover;
+    left: -$spacer * 4;
+    top: $spacer * 1;
+
+    @include tablet {
+      top: -$spacer * 0.2;
+    }
+  }
+
+  &__input {
+    resize: none;
+    height: 96px;
+    border: 2px solid $mercury;
+    border-radius: 5px;
+    background-color: $alabaster;
+    overflow: hidden;
+    padding: $spacer * 0.75 $spacer * 0.8;
+    margin-bottom: $spacer;
+
+    @include tablet {
+      height: 100%;
+      width: 80%;
+      margin-bottom: 0;
+      margin-right: $spacer;
+    }
+
+    &::placeholder {
+      color: $black;
+      position: relative;
+      top: 2px;
+    }
+
+    &:focus {
+      outline: none;
+      border: 2px solid $brainflix-blue;
+    }
+  }
+
+  &__label {
+    @include mobile-h5-labels;
+    color: $mercury;
+    font-weight: 600;
+
+    @include tablet {
+      position: absolute;
+      bottom: $spacer * 3;
+    }
+  }
+
+  &__button {
+    height: $spacer * 3;
+
+    @include tablet {
+      height: 100%;
+      width: 20%;
+      margin-bottom: 0;
+      padding: 4px $spacer * 4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

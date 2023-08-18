@@ -1,0 +1,31 @@
+/** @format */
+
+@use "./partials/typography" as *;
+@use "./partials/variables" as *;
+@use "./partials/mixins" as *;
+
+* {
+  box-sizing: border-box;
+  font-family: "Avenir";
+}
+
+button {
+  background-color: $brainflix-blue;
+  color: $white;
+  border-radius: 4px;
+  border: none;
+  &:hover {
+    background-color: $brainflix-darkblue;
+  }
+}
+
+.sidePage {
+  @include desktop {
+    display: flex;
+  }
+  &-left {
+    @include desktop {
+      width: 60%;
+    }
+  }
+}

@@ -1,0 +1,108 @@
+/** @format */
+
+@use "../../partials/mixins" as *;
+@use "../../partials/variables" as *;
+
+$info-margin: $spacer;
+$info-margin-tablet: $spacer * 1.5;
+$info-padding-desktop: $spacer * 10;
+
+.info {
+  @include mobile-paragraphs-comments;
+  display: flex;
+  flex-direction: column;
+  margin-left: $info-margin;
+  margin-right: $info-margin;
+
+  @include tablet {
+    @include large-paragraphs-comments;
+    margin-left: $info-margin-tablet;
+    margin-right: $info-margin-tablet;
+  }
+
+  @include desktop {
+    margin: 0;
+    padding-left: $info-padding-desktop;
+    padding-right: 0;
+  }
+
+  &__title {
+    @include mobile-h1-header;
+    padding-top: $spacer * 3;
+    align-self: flex-start;
+
+    @include desktop {
+      @include large-h1-header;
+    }
+  }
+
+  &-divider {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-bottom: 1px solid $mercury;
+    padding: $spacer $spacer 0;
+
+    @include tablet {
+      justify-content: space-between;
+      flex-direction: row;
+      padding-right: $spacer * 2;
+    }
+  }
+
+  &-user {
+    display: flex;
+    justify-content: flex-start;
+    margin-right: $spacer;
+
+    &__data,
+    &__dataDate {
+      display: flex;
+      align-items: flex-end;
+      font-weight: 600;
+
+      &__dataDate {
+        color: $silver;
+      }
+    }
+  }
+
+  &-social {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: $spacer;
+
+    @include tablet {
+      padding-top: 0;
+    }
+
+    &__viewIcon,
+    &__likeIcon {
+      position: relative;
+      top: 3px;
+      padding-right: 8px;
+    }
+
+    &__likecount {
+      padding-left: $spacer * 2;
+    }
+  }
+
+  &__commentsnum {
+    @include mobile-h3-subheader;
+    margin: $spacer * 3 0 $spacer * 2;
+    font-weight: 600;
+  }
+
+  &__description {
+    padding-top: $spacer;
+
+    @include tablet {
+      width: 78%;
+    }
+
+    @include desktop {
+      width: 70%;
+    }
+  }
+}
